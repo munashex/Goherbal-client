@@ -38,7 +38,7 @@ const dispatch = useDispatch()
 
             <span className="inline-flex items-center">
             <button onClick={() => dispatch(setIsCartOpen({}))}><GrCart size={35} className="text-white"/></button>
-            <button className="bg-[red] text-white   px-1 rounded-full">{cart?.length === 0 ? null : cart?.length} </button>
+            <button className="bg-black text-white   px-2 rounded-full">{cart?.length === 0 ? null : cart?.length} </button>
             </span>
           </div>
 
@@ -68,7 +68,7 @@ const dispatch = useDispatch()
            
          <span className="inline-flex items-center">
          <button onClick={() => dispatch(setIsCartOpen({}))}><GrCart size={35} className="text-white"/></button>
-            <button className="bg-[red] text-white text-lg   px-2 rounded-full">{cart?.length === 0 ? null : cart?.length} </button>
+            <button className="bg-black text-white text-lg   px-2 rounded-full">{cart?.length === 0 ? null : cart?.length} </button>
             </span>
          
          </div>

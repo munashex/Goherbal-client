@@ -4,7 +4,8 @@ import Navbar from './scenes/global/Navbar'
 import ItemDetails from './scenes/itemDetails/itemDetails' 
 import Checkout from './scenes/checkout/Checkout' 
 import Confirmation from './scenes/checkout/Confirmation' 
-import CartMenu from './scenes/global/CartMenu' 
+import CartMenu from './scenes/global/CartMenu'  
+import Category from './scenes/category/Category'
 import {setIsCartOpen} from './state'
 
 const App = () => {
@@ -19,6 +20,8 @@ const App = () => {
         <Route path="item/:itemId" element={<ItemDetails/>}/> 
         <Route path="checkout" element={<Checkout/>}/> 
         <Route path="checkout/success" element={<Confirmation/>}/>
+        <Route path="category/:categoryId" element={<Category/>
+      }/>
       </Routes>
       <CartMenu/>
       </div>

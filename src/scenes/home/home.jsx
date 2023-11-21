@@ -1,5 +1,6 @@
 import echinaceaherbs from '../../assets/echinaceaherbs.jpg' 
 import ShoppingList from './ShoppingList'
+import Categories from '../../components/Categories'
 
 
 const Home = () => {
@@ -19,6 +20,7 @@ const Home = () => {
           </div>
          </div> 
        
+         <Categories/>
          <ShoppingList/>
 
 
