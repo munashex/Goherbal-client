@@ -28,7 +28,7 @@ const dispatch = useDispatch()
           <FaBarsStaggered size={35} color="white"/>  
           </span>
 
-          <Link to="/">
+          <Link onClick={() => navigate('/')} to="/">
           <img src={Logo} className="w-40" /> 
           </Link>
           </div> 
@@ -50,7 +50,7 @@ const dispatch = useDispatch()
 
          <div className="flex gap-x-8 items-center">
           
-          <Link>
+          <Link onClick={() => navigate('/')} to="/">
          <img src={Logo} className="w-48"/>
          </Link>
 

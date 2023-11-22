@@ -6,12 +6,14 @@ import Checkout from './scenes/checkout/Checkout'
 import Confirmation from './scenes/checkout/Confirmation' 
 import CartMenu from './scenes/global/CartMenu'  
 import Category from './scenes/category/Category'
-import {setIsCartOpen} from './state'
+import {setIsCartOpen} from './state' 
+import Footer from './scenes/global/Footer' 
+import Whatsapp from './scenes/global/Whatsapp'
 
 const App = () => {
 
   return (
-    <div style={{fontFamily: ['Poppins', 'sans']}}> 
+    <div style={{fontFamily: ['Poppins', 'sans']}} className="w-[100%]"> 
       <BrowserRouter>
       <Navbar/>
       <div className="mt-16">
@@ -23,7 +25,9 @@ const App = () => {
         <Route path="category/:categoryId" element={<Category/>
       }/>
       </Routes>
+      <Footer/>
       <CartMenu/>
+      <Whatsapp/>
       </div>
       </BrowserRouter>
     </div>
