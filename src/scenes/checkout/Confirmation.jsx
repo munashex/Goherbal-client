@@ -1,12 +1,9 @@
+import React from 'react'
 
-
-const Confirmation  = () => {
-
-    return (
-        <div>
-         confirmation
-        </div>
-    )
+function Confirmation() {
+  return (
+    <div>Confirmation</div>
+  )
 }
 
 export default Confirmation

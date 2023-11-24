@@ -19,12 +19,15 @@ function Item({ item }) {
     navigate(`/item/${item.id}`);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+  
+
+
 
   return (
     <div className="border h-full rounded-md flex flex-col">
       <div className="relative">
         <img
-          src={`http://localhost:1337${image?.data?.attributes?.url}`}
+          src={image.data?.attributes?.url}
           onClick={handleViewProduct}
           alt={name}
           className="cursor-pointer w-full h-48 object-cover"

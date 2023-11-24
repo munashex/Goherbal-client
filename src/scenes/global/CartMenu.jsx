@@ -23,7 +23,7 @@ const CartMenu = () => {
   return (
     <div className={`${isCartOpen ? 'flex' : 'hidden'}`}>
       {cart?.length === 0 ? (
-        <div className="shadow bg-gray-200 w-[90%] md:w-1/2 fixed top-0 z-20 bottom-0 right-0">
+        <div className="shadow bg-gray-200 animate-fade-left w-[90%] md:w-1/2 fixed top-0 z-20 bottom-0 right-0">
           <div className="flex m-7 items-center justify-between">
             <h1 className="text-lg">Your cart is currently empty</h1>
             <button onClick={() => dispatch(setIsCartOpen({}))}>
@@ -32,7 +32,7 @@ const CartMenu = () => {
           </div>
         </div>
       ) : (
-        <div className="shadow bg-gray-200 w-[90%] md:w-1/2 fixed top-0 z-20 bottom-0 right-0">
+        <div className="shadow animate-fade-left bg-gray-200 w-[90%] md:w-1/2 fixed top-0 z-20 bottom-0 right-0">
           <div className="text-lg font-bold flex items-center justify-between m-4">
             <h1>SHOPPING BAG ({cart?.length})</h1>
             <button onClick={() => dispatch(setIsCartOpen({}))}>
@@ -47,7 +47,7 @@ const CartMenu = () => {
                  <img
                     alt={item?.name}
                     className="w-40 h-40 object-cover rounded-md"
-                    src={`http://localhost:1337${item?.attributes.image?.data?.attributes?.formats?.thumbnail?.url}`}
+                    src={item?.attributes.image?.data?.attributes?.formats?.thumbnail?.url}
                   />
                 </Link> 
 

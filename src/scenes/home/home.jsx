@@ -4,6 +4,7 @@ import Categories from '../../components/Categories'
 import { Link, useNavigate } from 'react-router-dom'
 
 
+
 const Home = () => {
 
     const navigate = useNavigate()
@@ -24,6 +25,7 @@ const Home = () => {
        
          <Categories/>
          <ShoppingList/>
+        
 
 
         </div>

@@ -86,7 +86,7 @@ const ItemDetails = () => {
     <div className="py-8 md:py-12 px-6">
       <div className="flex flex-col md:flex-row gap-x-4 gap-y-6">
         <img
-          src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.url}`}
+          src={item?.attributes?.image?.data?.attributes?.url}
           alt={item?.attributes?.name}
           className="object-cover"
         />
