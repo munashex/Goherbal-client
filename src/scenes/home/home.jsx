@@ -2,6 +2,7 @@ import echinaceaherbs from '../../assets/echinaceaherbs.jpg'
 import ShoppingList from './ShoppingList'
 import Categories from '../../components/Categories'
 import { Link, useNavigate } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 
 
 
@@ -9,9 +10,11 @@ const Home = () => {
 
     const navigate = useNavigate()
     return (
-        <div className=" ">
-         
-    
+        <div className="">
+        <Helmet>
+        <title>GoNatural Herbal</title>
+        <meta name="description" content="GoHerbal Natural offers a range of organic herbs, capsules, and seeds. Explore our products including Echinacea, Joint and Muscle Support, Digestive Health, Immune Boosters, Anti-inflammatory and Antioxidants, Women's Health, Blood Purification and Cleansing, and more." />
+        </Helmet>
          <div className="relative"> 
          <img src={echinaceaherbs} 
           className="object-cover lg:h-96 w-full" 

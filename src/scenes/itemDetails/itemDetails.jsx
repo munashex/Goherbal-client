@@ -6,6 +6,7 @@ import { IoMdAdd } from 'react-icons/io';
 import { LuMinus } from 'react-icons/lu';
 import { FaCircle } from "react-icons/fa" 
 import Item from '../../components/Item';
+import { Helmet } from 'react-helmet-async';
 
 const ItemDetails = () => {
   const dispatch = useDispatch();
@@ -83,6 +84,10 @@ const ItemDetails = () => {
     
   return (
     <div>
+     <Helmet>
+      <title>{item?.attributes?.name}</title>
+      <meta name="description" content={`${item?.attributes?.name}  ${item?.attributes?.shortDescription}`} />
+     </Helmet>
     <div className="py-8 md:py-12 px-6">
       <div className="flex flex-col md:flex-row gap-x-4 gap-y-6">
         <img

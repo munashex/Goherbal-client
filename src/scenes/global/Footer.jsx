@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { FaPhoneAlt } from "react-icons/fa"
 import { MdOutlineMail } from "react-icons/md"
 import { FaFacebook } from "react-icons/fa"
-
+import { MdRoundaboutRight } from "react-icons/md"
 
 function Footer() {
 
@@ -37,7 +37,7 @@ function Footer() {
          <div className="space-y-3">
             <h1 className="font-bold">Get in touch</h1> 
              
-             <div className="flex flex-col gap-y-2">
+             <div className="flex flex-col gap-y-3">
                 <a className="inline-flex items-center gap-x-2 underline underline-offset-2" href={`tel:${+27678918922}`}>
                     <FaPhoneAlt/> +27 678 918 922 
                 </a>
@@ -49,6 +49,11 @@ function Footer() {
                 <a className="inline-flex items-center gap-x-2 underline underline-offset-2" href="https://www.facebook.com/profile.php?id=100091994448985"> 
                <FaFacebook size={23}/> facebook 
                 </a>
+                 
+                 <Link to="/about" onClick={() => window.scroll({top: 0, behavior: "smooth"})} className="inline-flex items-center gap-x-2 underline underline-offset-2"> 
+                  <MdRoundaboutRight size={23}/> About Us  
+                 </Link>
+
              </div>
          </div>
 

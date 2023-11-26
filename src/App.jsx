@@ -6,13 +6,16 @@ import Checkout from './scenes/checkout/checkout'
 import Confirmation from './scenes/checkout/Confirmation' 
 import CartMenu from './scenes/global/CartMenu'  
 import Category from './scenes/category/Category'
-import {setIsCartOpen} from './state' 
 import Footer from './scenes/global/Footer' 
-import Whatsapp from './scenes/global/Whatsapp'
+import Whatsapp from './scenes/global/Whatsapp' 
+import About from './scenes/about/About' 
+import NotFound from './scenes/NotFound/NotFound'
+import {  HelmetProvider } from 'react-helmet-async';
 
 const App = () => {
 
   return (
+    <HelmetProvider>
     <div style={{fontFamily: ['Poppins', 'sans']}} className="w-[100%]"> 
       <BrowserRouter>
       <Navbar/>
@@ -20,10 +23,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home/>}/> 
         <Route path="item/:itemId" element={<ItemDetails/>}/> 
-        <Route path="checkout" element={<Checkout/>}/> 
-        <Route path="checkout/success" element={<Confirmation/>}/>
-        <Route path="category/:categoryId" element={<Category/>
-      }/>
+        <Route path="category/:categoryId" element={<Category/>}/>  
+        <Route path="/about" element={<About/>}/> 
+        <Route path="*" element={<NotFound/>}/>
       </Routes>
       <Footer/>
       <CartMenu/>
@@ -31,6 +33,7 @@ const App = () => {
       </div>
       </BrowserRouter>
     </div>
+    </HelmetProvider>
   )
 } 
 
