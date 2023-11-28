@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <HelmetProvider>
-    <div style={{fontFamily: ['Poppins', 'sans']}} className="w-[100%]"> 
+     <div style={{fontFamily: ['Poppins', 'sans']}} className="w-[100%]"> 
       <BrowserRouter>
       <Navbar/>
       <div className="mt-16">
