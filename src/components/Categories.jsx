@@ -25,9 +25,9 @@ const Categories = () => {
     { image: category2, name: "Joint Support", url: 'Joint and Muscle Support' },
     { image: category5, name: "Anti-inflammatory", url: "Anti-inflammatory and Antioxidants" },
     { image: category7, name: "Blood Cleansing", url: 'Blood Purification and Cleansing' },
-    { image: category8, name: "Seeds", url: 'Other Seeds' },
+    { image: category8, name: "Seeds", url: 'Seeds' },
     { image: category9, name: "Miscellaneous", url: 'Miscellaneous' },
-    { image: category10, name: "Unknown", url: 'Unknown Category (not specified)' },
+    { image: category10, name: "Unknown", url: 'Unknown Category' },
   ];
 
   const handleTopCategoryClick = (name) => {

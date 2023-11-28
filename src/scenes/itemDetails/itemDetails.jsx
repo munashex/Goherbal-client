@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../state';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { IoMdAdd } from 'react-icons/io';
 import { LuMinus } from 'react-icons/lu';
-import { FaCircle } from "react-icons/fa" 
+import { FaCircle } from 'react-icons/fa';
 import Item from '../../components/Item';
 import { Helmet } from 'react-helmet-async';
 
@@ -15,6 +15,7 @@ const ItemDetails = () => {
   const [count, setCount] = useState(1);
   const [item, setItem] = useState(null);
   const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const getItem = async () => {
     try {
@@ -25,6 +26,8 @@ const ItemDetails = () => {
       setItem(data);
     } catch (error) {
       console.error('Error fetching item details:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -39,6 +42,7 @@ const ItemDetails = () => {
   };
 
   useEffect(() => {
+    setLoading(true);
     getItem();
     getItems();
   }, [itemId]);
@@ -53,14 +57,14 @@ const ItemDetails = () => {
 
   const handleAddToCart = () => {
     dispatch(addToCart({ item: { ...item, count } }));
-  }
+  };
 
   const extractRichText = () => {
     if (!item || !item.attributes || !item.attributes.longDescription) return '';
 
     return item.attributes.longDescription.reduce((acc, paragraph) => {
       if (paragraph.type === 'paragraph' && paragraph.children && paragraph.children.length > 0) {
-        paragraph.children.forEach(child => {
+        paragraph.children.forEach((child) => {
           if (child.type === 'text') {
             acc += child.text;
           }
@@ -70,92 +74,101 @@ const ItemDetails = () => {
     }, '');
   };
 
-
   // Function to get random items
   const getRandomItems = (array, numItems) => {
     const shuffledArray = array.sort(() => Math.random() - 0.5);
     return shuffledArray.slice(0, numItems);
   };
 
-  // Get six random items from the array
+  // Get four random items from the array
   const randomItems = getRandomItems(items, 4);
 
-
-    
   return (
-    <div>
-     <Helmet>
-      <title>{item?.attributes?.name}</title>
-      <meta name="description" content={`${item?.attributes?.name}  ${item?.attributes?.shortDescription}`} />
-     </Helmet>
     <div className="py-8 md:py-12 px-6">
-      <div className="flex flex-col md:flex-row gap-x-4 gap-y-6">
-        <img
-          src={item?.attributes?.image?.data?.attributes?.url}
-          alt={item?.attributes?.name}
-          className="object-cover"
+      <Helmet>
+        <title>{item?.attributes?.name}</title>
+        <meta
+          name="description"
+          content={`${item?.attributes?.name} ${item?.attributes?.shortDescription}`}
         />
+      </Helmet>
 
-        <div className="space-y-4">
-          <h1>Home / {item?.attributes?.name}</h1>
-
-          <h1 className="inline-flex items-center gap-x-2">
-            <h1>Category</h1>
-            <Link to={`/category/${item?.attributes?.category}`} className="text-blue-700 underline decoration-clone underline-offset-2">{item?.attributes?.category}</Link>
-          </h1>
-
-          <h1 className="text-xl font-bold">{item?.attributes?.name}</h1>
-          <h1 className="text-lg font-semibold">R {item?.attributes?.price}</h1>
-
-          <div>
-            <h1 className="font-bold">Quantity</h1>
-            <div className="flex flex-row items-center gap-x-2 mt-2">
-              <button className="border border-slate-400" onClick={handleDecrease}>
-                <LuMinus size={25} />
-              </button>
-
-              <span className="border border-slate-400 px-2 text-lg rounded-full">{count}</span>
-              <button className="border border-slate-400" onClick={handleIncrease}>
-                <IoMdAdd size={25} />
-              </button>
+      {loading ? (
+        // Skeleton loader while data is loading
+        <div className="animate-pulse space-y-4">
+          <div className="h-8 w-1/2 bg-gray-300 rounded"></div>
+          <div className="h-96 w-full bg-gray-300 rounded"></div>
+          {/* Add more skeleton elements as needed */}
+        </div>
+      ) : (
+        <>
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="md:w-1/2">
+              <img
+                src={item?.attributes?.image?.data?.attributes?.url}
+                alt={item?.attributes?.name}
+                className="object-cover w-full rounded-lg"
+              />
             </div>
 
-            <div className="my-5">
-              <h1 className="inline-flex items-center gap-x-3">
-                <span className="animate-pulse"><FaCircle color="green" /></span>
-                <h1 className="text-lg">In Stock, ready to ship</h1>
-              </h1>
-            </div>
+            <div className="flex flex-col md:w-1/2">
+              <h1 className="text-3xl font-bold">{item?.attributes?.name}</h1>
+              <p className="text-gray-600 my-2">Home / {item?.attributes?.name}</p>
+              <p className="text-lg font-semibold mb-4">R {item?.attributes?.price}</p>
 
-            <button
-              onClick={handleAddToCart}
-              className="bg-green-700 px-5 py-2 text-white text-lg font-bold">
-              Add to Cart
-            </button>
+              <div className="flex items-center gap-4">
+                <button
+                  className="border border-slate-400 p-2 rounded"
+                  onClick={handleDecrease}
+                >
+                  <LuMinus size={20} />
+                </button>
+
+                <span className="text-lg">{count}</span>
+
+                <button
+                  className="border border-slate-400 p-2 rounded"
+                  onClick={handleIncrease}
+                >
+                  <IoMdAdd size={20} />
+                </button>
+              </div>
+
+              <p className="my-4 flex items-center gap-2">
+                <span className="text-green-500 animate-pulse">
+                  <FaCircle />
+                </span>
+                In Stock, ready to ship
+              </p>
+
+              <button
+                onClick={handleAddToCart}
+                className="bg-green-700 text-white px-6 py-2 rounded-lg text-lg font-bold"
+              >
+                Add to Cart
+              </button>
+            </div>
           </div>
 
-        </div>
-      </div>
+          <div className="mt-8">
+            <h2 className="text-2xl font-bold mb-4">Description</h2>
+            <p className="text-gray-700 font-bold md:text-lg">{item?.attributes?.shortDescription}</p>
+            <p className="text-gray-700 mt-4 md:text-lg">{extractRichText()}</p>
+          </div>
 
-      <div className="mt-11 space-y-2">
-        <h1 className="font-bold md:text-lg">{item?.attributes?.shortDescription}</h1>
-        <h1 className="md:text-lg">{extractRichText()}</h1>
-      </div> 
-
-
-    </div> 
-    
-    <div className="mt-3 space-y-4 m-4">
-    <h1 className="text-xl md:text-2xl font-bold">You may also like</h1> 
-
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
-   {randomItems.map((item) => (
-     <Item item={item} key={item.id}/>
-   ))}
-    </div>
-   </div>
+          <div className="mt-8">
+            <h2 className="text-2xl font-bold mb-4">You may also like</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {randomItems.map((item) => (
+                <Item item={item} key={item.id} />
+              ))}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
 
 export default ItemDetails;
+

@@ -14,7 +14,7 @@ function Footer() {
         { name: 'Anti-inflammatory and Antioxidants' },
         { name: "Women's Health" },
         { name: 'Blood Purification and Cleansing' },
-        { name: 'Other Seeds' },
+        { name: 'Seeds' },
       ]
       
 

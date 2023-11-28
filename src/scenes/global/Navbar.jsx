@@ -6,7 +6,7 @@ import { IoSearch } from 'react-icons/io5';
 import { GrCart } from 'react-icons/gr';
 import Logo from '../../assets/Logo.png';
 import { setIsCartOpen } from '../../state';
-import { Md10K, MdClose } from 'react-icons/md';
+import {MdClose } from 'react-icons/md';
 import NavLinks from '../../components/NavLinks';
 
 const Navbar = () => {
@@ -24,10 +24,11 @@ const Navbar = () => {
   const closeNav = () => {
     setOpenNav(false);
     setSearch(false);
+    window.scroll({top:0, behavior: "smooth"})
   };
 
   const getProducts = async () => {
-    const results = await fetch('http://localhost:1337/api/items');
+    const results = await fetch('http://localhost:1337/api/items?pagination[page]=1&pagination[pageSize]=100');
     const data = await results.json();
     setProducts(data.data);
   };

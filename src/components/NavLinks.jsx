@@ -12,7 +12,7 @@ function NavLinks({closeNav}) {
         {  name: "Joint Support", url: 'Joint and Muscle Support' },
         {  name: "Anti-inflammatory", url: "Anti-inflammatory and Antioxidants" },
         { name: "Blood Cleansing", url: 'Blood Purification and Cleansing' },
-        {  name: "Seeds", url: 'Other Seeds' },
+        {  name: "Seeds", url: 'Seeds' },
       ];
 
 
