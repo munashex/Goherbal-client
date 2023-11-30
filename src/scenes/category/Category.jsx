@@ -17,7 +17,7 @@ function Category() {
   const getItems = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:1337/api/items?populate=image&pagination[page]=1&pagination[pageSize]=100', { method: 'GET' });
+      const response = await fetch('https://gonaturalherbal.onrender.com/api/items?populate=image&pagination[page]=1&pagination[pageSize]=100', { method: 'GET' });
       const itemJson = await response.json();
       dispatch(setItems(itemJson.data));
     } catch (error) {
@@ -93,7 +93,7 @@ function Category() {
   );
 
   return (
-    <div className="py-9 m-4">
+    <div className="py-14 md:py-14 px-3 md:px-6">
       <h1 className="text-lg">Home / {categoryId}</h1>
 
       {loading ? (

@@ -10,7 +10,7 @@ function ShoppingList() {
 
   const fetchItemsWithPagination = async (page, pageSize) => {
     try {
-      const items = await fetch(`http://localhost:1337/api/items?populate=image&pagination[page]=${page}&pagination[pageSize]=${pageSize}`, { method: "GET" });
+      const items = await fetch(`https://gonaturalherbal.onrender.com/api/items?populate=image&pagination[page]=${page}&pagination[pageSize]=${pageSize}`, { method: "GET" });
       const itemJson = await items.json();
       return itemJson.data;
     } catch (error) {

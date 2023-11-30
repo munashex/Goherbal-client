@@ -15,19 +15,35 @@ const Home = () => {
         <title>GoNatural Herbal</title>
         <meta name="description" content="GoHerbal Natural offers a range of organic herbs, capsules, and seeds. Explore our products including Echinacea, Joint and Muscle Support, Digestive Health, Immune Boosters, Anti-inflammatory and Antioxidants, Women's Health, Blood Purification and Cleansing, and more." />
         </Helmet>
-         <div className="relative"> 
-         <img src={echinaceaherbs} 
-          className="object-cover lg:h-96 w-full" 
-          />
-          <div className="absolute top-11 bg-black bg-opacity-50 space-y-4 text-white p-3 md:p-7">
-          <h1 className="text-xl md:text-2xl text-white font-bold">Echinacea: Immune Support Master</h1>
-           <h1 className="md:text-lg">Unleash the immune-boosting prowess of Echinacea. Explore our premium selection for a healthier you</h1>
-             <button onClick={() => navigate('/category/Echinacea')} className="bg-green-700   text-lg p-1 md:p-2 " >Discover Echinacea</button>
-          </div>
-         </div> 
+        
+        <div className="relative">
+  <img
+    src={echinaceaherbs}
+    className="object-cover w-full h-72 md:h-96"
+    alt="Echinacea Herbs"
+  />
+  <div className="absolute inset-0 flex flex-col justify-center gap-y-2 items-center bg-black bg-opacity-60 p-4 md:p-8 text-white">
+    <h1 className="text-2xl  animate-fade-right animate-delay-150 md:text-4xl font-bold text-center mb-2 leading-tight">Immune Support Master</h1>
+    <p className="text-lg animate-fade-right animate-delay-300 md:text-xl text-center mb-4 max-w-md">Unlock the immune-boosting power of Echinacea. Explore our premium selection for a healthier you.</p>
+    <button
+      onClick={() => navigate('/category/Echinacea')}
+      className="bg-green-700 text-lg p-2 px-5 md:p-3 animate-fade-right   mb-6 hover:bg-green-600 transition duration-300"
+    >
+      Discover Echinacea
+    </button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
        
          <Categories/>
-         {/* <ShoppingList/> */}
+         <ShoppingList/>
         
 
 

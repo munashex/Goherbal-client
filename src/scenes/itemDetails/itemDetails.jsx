@@ -19,7 +19,7 @@ const ItemDetails = () => {
 
   const getItem = async () => {
     try {
-      const response = await fetch(`http://localhost:1337/api/items/${itemId}?populate=image`, {
+      const response = await fetch(`https://gonaturalherbal.onrender.com/api/items/${itemId}?populate=image`, {
         method: 'GET',
       });
       const { data } = await response.json();
@@ -33,7 +33,7 @@ const ItemDetails = () => {
 
   const getItems = async () => {
     try {
-      const response = await fetch('http://localhost:1337/api/items?populate=image', { method: 'GET' });
+      const response = await fetch('https://gonaturalherbal.onrender.com/api/items?populate=image', { method: 'GET' });
       const { data } = await response.json();
       setItems(data);
     } catch (error) {
@@ -84,7 +84,7 @@ const ItemDetails = () => {
   const randomItems = getRandomItems(items, 4);
 
   return (
-    <div className="py-8 md:py-12 px-6">
+    <div className="py-14 md:py-14 px-3 md:px-6">
       <Helmet>
         <title>{item?.attributes?.name}</title>
         <meta

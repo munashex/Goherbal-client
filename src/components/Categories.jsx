@@ -48,12 +48,7 @@ const Categories = () => {
 
   return (
     <div>
-      {/* top categories */}
-      <div className="bg-gray-300 text-black p-4">
-        <h1 className="text-xl md:text-2xl font-bold text-center">Over 1000 5-Star Reviews ⭑⭑⭑⭑⭑</h1>
-      </div>
-
-      <div className="px-5 md:px-7  my-16 w-[100%] grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div className="px-5 md:px-7  my-16 w-[100%] grid grid-cols-1 md:grid-cols-3 gap-3 animate-fade-right animate-delay-500">
         {topCategories.map((item) => (
           <Link
             key={item.name}

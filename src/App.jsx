@@ -19,7 +19,7 @@ const App = () => {
      <div style={{fontFamily: ['Poppins', 'sans']}} className="w-[100%]"> 
       <BrowserRouter>
       <Navbar/>
-      <div className="mt-16">
+      <div className="mt-12">
       <Routes>
         <Route path="/" element={<Home/>}/> 
         <Route path="item/:itemId" element={<ItemDetails/>}/> 

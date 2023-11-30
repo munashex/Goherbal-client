@@ -24,7 +24,7 @@ function Item({ item }) {
 
 
   return (
-    <div className="border h-full rounded-md flex flex-col">
+    <div className="border h-full rounded-md flex flex-col animate-fade-right animate-delay-500">
       <div className="relative">
         <img
           src={image.data?.attributes?.url}

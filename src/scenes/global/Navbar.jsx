@@ -28,7 +28,7 @@ const Navbar = () => {
   };
 
   const getProducts = async () => {
-    const results = await fetch('http://localhost:1337/api/items?pagination[page]=1&pagination[pageSize]=100');
+    const results = await fetch('https://gonaturalherbal.onrender.com/api/items?pagination[page]=1&pagination[pageSize]=100');
     const data = await results.json();
     setProducts(data.data);
   };
@@ -78,7 +78,7 @@ const Navbar = () => {
               />
               {/* Display filtered names in a separate container */}
               {filteredNames.length > 0 && (
-                <div className="absolute top-full left-0 w-/12 w-full bg-green-700 p-4 shadow-md mt-2">
+                <div className="absolute top-full left-0 w-/12 w-full bg-green-700 p-4 shadow-md mt-2 animate-fade-left">
                   <ul className="gap-y-1 flex flex-col">
                     {filteredNames.map((filteredName) => (
                       <Link
@@ -147,7 +147,7 @@ const Navbar = () => {
                 />
 
                   {filteredNames.length > 0 && (
-                  <div className="md:absolute top-full left-0 mx-2 w-[42%] lg:w-[27%] bg-green-700 p-4 shadow-md mt-2">
+                  <div className="md:absolute top-full left-0 mx-2 w-[42%] lg:w-[27%] bg-green-700 p-4 shadow-md mt-2 animate-fade-left">
                     <ul className="gap-y-1 flex flex-col">
                       {filteredNames.map((filteredName) => (
                         <Link

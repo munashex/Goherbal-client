@@ -3,14 +3,14 @@ import { Helmet } from 'react-helmet-async'
 
 function About() {
   return (
-    <div className="px-3 py-11 md:px-11 lg:px-16 space-y-11"> 
+    <div className="px-3 py-14 md:py-16 md:px-11 lg:px-16 space-y-11 "> 
     <Helmet>
       <title>About</title> 
       <meta name="description" content="At GoNatural Herbal, we are passionate about providing you with the finest selection of organic herbs, teas, and capsules. We understand the importance of embracing a natural and holistic approach to wellness, and that's why our products are carefully curated to meet the highest standards of quality"/>
     </Helmet>
      
      <div className="space-y-2 md:space-y-3">
-     <h1 className="font-bold text-xl md:text-2xl">About Us</h1>  
+     <h1 className="font-bold text-2xl md:text-3xl">About Us</h1>  
       <h1 className="text-lg md:text-xl font-semibold">Welcome to GoNatural Herbal – Your Source for Premium Organic Herbs, Teas, and Capsules!</h1>
       <h1 className="md:text-lg">At GoNatural Herbal, we are passionate about providing you with the finest selection of organic herbs, teas, and capsules. We understand the importance of embracing a natural and holistic approach to wellness, and that's why our products are carefully curated to meet the highest standards of quality</h1>
     </div> 
